@@ -95,7 +95,7 @@ then
 	then
 		echo "Internet UP"
 		mv $HOME/.motion/motion.conf $HOME/.motion/motion-orig.conf
-		wget -O $HOME/.motion/motion.conf https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/motion-latest.conf
+		wget -O $HOME/.motion/motion.conf https://portal.duranc.com/duranc_bootstrap/gateway/motion-latest.conf
 
 		# CHECK IF MOTION.CONF FILE IS EMPTY OR NOT
 		if [ -s $HOME/.motion/motion.conf ]; then
@@ -117,17 +117,17 @@ then
 		then
 			echo "File Exists"
 			rm -f $FILEDIRECTORY/$FILE1
-			wget -O $HOME/.motion/weights/latestweight.txt https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/weights/latestweight.txt
+			wget -O $HOME/.motion/weights/latestweight.txt https://portal.duranc.com/duranc_bootstrap/gateway/weights/latestweight.txt
 			diff --brief <(sort $FILEDIRECTORY/$FILE1) <(sort $FILEDIRECTORY/$FILE2) >/dev/null
 			comp_value=$?
 			#Comparing two files
 			if [ $comp_value -eq 1 ]
 			then
 				echo "Files are different - Performing Weight Files Update"
-				wget -O $HOME/.motion/weights/libdarknet.so https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/weights/libdarknet.so
-				wget -O $HOME/.motion/weights/duranc_tiny_v3.weights https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/weights/duranc_tiny_v3.weights
-				wget -O $HOME/.motion/weights/duranc_tiny_v3.names https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/weights/duranc_tiny_v3.names
-				wget -O $HOME/.motion/weights/duranc_tiny_v3.cfg https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/weights/duranc_tiny_v3.cfg
+				wget -O $HOME/.motion/weights/libdarknet.so https://portal.duranc.com/duranc_bootstrap/gateway/weights/libdarknet.so
+				wget -O $HOME/.motion/weights/duranc_tiny_v3.weights https://portal.duranc.com/duranc_bootstrap/gateway/weights/duranc_tiny_v3.weights
+				wget -O $HOME/.motion/weights/duranc_tiny_v3.names https://portal.duranc.com/duranc_bootstrap/gateway/weights/duranc_tiny_v3.names
+				wget -O $HOME/.motion/weights/duranc_tiny_v3.cfg https://portal.duranc.com/duranc_bootstrap/gateway/weights/duranc_tiny_v3.cfg
 				# Copy latestweight.txt TO currentweight.txt
 				cp $FILEDIRECTORY/$FILE1 $FILEDIRECTORY/$FILE2
 			else
@@ -137,11 +137,11 @@ then
 			# Fresh Installation, create weights file directory
 			mkdir -p $HOME/.motion/weights
 			echo "You need to download $FILE1"
-			wget -O $HOME/.motion/weights/latestweight.txt https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/weights/latestweight.txt
-			wget -O $HOME/.motion/weights/libdarknet.so https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/weights/libdarknet.so
-			wget -O $HOME/.motion/weights/duranc_tiny_v3.weights https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/weights/duranc_tiny_v3.weights
-			wget -O $HOME/.motion/weights/duranc_tiny_v3.names https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/weights/duranc_tiny_v3.names
-			wget -O $HOME/.motion/weights/duranc_tiny_v3.cfg https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/weights/duranc_tiny_v3.cfg
+			wget -O $HOME/.motion/weights/latestweight.txt https://portal.duranc.com/duranc_bootstrap/gateway/weights/latestweight.txt
+			wget -O $HOME/.motion/weights/libdarknet.so https://portal.duranc.com/duranc_bootstrap/gateway/weights/libdarknet.so
+			wget -O $HOME/.motion/weights/duranc_tiny_v3.weights https://portal.duranc.com/duranc_bootstrap/gateway/weights/duranc_tiny_v3.weights
+			wget -O $HOME/.motion/weights/duranc_tiny_v3.names https://portal.duranc.com/duranc_bootstrap/gateway/weights/duranc_tiny_v3.names
+			wget -O $HOME/.motion/weights/duranc_tiny_v3.cfg https://portal.duranc.com/duranc_bootstrap/gateway/weights/duranc_tiny_v3.cfg
 			# Copy latestweight.txt TO currentweight.txt
 			cp $FILEDIRECTORY/$FILE1 $FILEDIRECTORY/$FILE2
 		fi
@@ -157,7 +157,7 @@ else
 	then
 		echo "Internet UP"
 		mv $HOME/.motion/motion.conf $HOME/.motion/motion-orig.conf
-		wget -O $HOME/.motion/motion.conf https://raw.githubusercontent.com/DurancOy/duranc_bootstrap/master/gateway/motion_pi.conf
+		wget -O $HOME/.motion/motion.conf https://portal.duranc.com/duranc_bootstrap/gateway/motion_pi.conf
 		# CHECK IF MOTION.CONF FILE IS EMPTY OR NOT
 		if [ -s $HOME/.motion/motion.conf ]; then
 			# The file is not-empty.
